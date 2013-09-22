@@ -14,15 +14,24 @@ DOTFILES="vimrc vim"
 # Loop through and create a symlink for each dotfile. If a file already exists,
 # back it up to ${BACKUP_DIR}.
 for file in $DOTFILES; do
+    INSTALL=1
     if [[ -e $HOME/.$file ]]; then
-        if [[ ! -d $BACKUP_DIR ]]; then
-            echo "Creating backup directory ${BACKUP_DIR}"
-            mkdir --parents $BACKUP_DIR
+        # Don't backup if symlink already points to proper file
+        if [[ "$(realpath $HOME/.$file)" != "${DIRECTORY}/$file" ]]; then
+            if [[ ! -d $BACKUP_DIR ]]; then
+                echo "Creating backup directory ${BACKUP_DIR}"
+                mkdir --parents $BACKUP_DIR
+            fi
+            echo "Backing up ~/.$file to ${BACKUP_DIR}/$file"
+            mv $HOME/.$file ${BACKUP_DIR}/$file
+        else
+            INSTALL=0
         fi
-        echo "Backing up ~/.$file to ${BACKUP_DIR}/$file"
-        mv $HOME/.$file ${BACKUP_DIR}/$file
     fi
-    
-    echo "Installing ${DIRECTORY}/$file to ~/.$file"
-    ln -s ${DIRECTORY}/$file $HOME/.$file 
+   
+    if [[ $INSTALL -eq 1 ]]; then
+        echo "Installing ${DIRECTORY}/$file to ~/.$file"
+        ln -s ${DIRECTORY}/$file $HOME/.$file 
+    fi
 done
+
