@@ -11,6 +11,12 @@ DIRECTORY=$(realpath $(dirname $0))
 BACKUP_DIR=${DIRECTORY}_old
 DOTFILES="vimrc vim"
 
+# Initialize and update submodules
+pushd $DIRECTORY
+git submodule init
+git submodule update
+popd
+
 # Loop through and create a symlink for each dotfile. If a file already exists,
 # back it up to ${BACKUP_DIR}.
 for file in $DOTFILES; do
