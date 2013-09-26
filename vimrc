@@ -94,8 +94,8 @@ if has("gui_running")
 
     " Font
     " set guifont="DejaVu Sans Mono 10"
-    set guifont=monoOne\ 10
-    colorschem molokai
+    set guifont=Inconsolata\ 10
+    colorscheme molokai
 endif
 
 " Default to UTF8 encoding
