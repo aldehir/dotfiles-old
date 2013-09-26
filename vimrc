@@ -96,7 +96,8 @@ if has("gui_running")
     set guitablabel=%M\ %t
 
     " Font
-    set guifont="DejaVu Sans Mono 10"
+    " set guifont="DejaVu Sans Mono 10"
+    set guifont=monoOne\ 9
 endif
 
 " Default to UTF8 encoding

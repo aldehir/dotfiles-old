@@ -13,3 +13,6 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "fonts/monoOne"]
+	path = fonts/monoOne
+	url = git@github.com:madmalik/monoOne.git

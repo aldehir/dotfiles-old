@@ -9,7 +9,7 @@
 # Global Variables
 DIRECTORY=$(realpath $(dirname $0))
 BACKUP_DIR=${DIRECTORY}_old
-DOTFILES="vimrc vim"
+DOTFILES="vimrc vim fonts"
 
 # Initialize and update submodules
 pushd $DIRECTORY
@@ -41,3 +41,5 @@ for file in $DOTFILES; do
     fi
 done
 
+# Update font cache
+fc-cache
