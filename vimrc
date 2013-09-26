@@ -86,9 +86,6 @@ set tm=500
 syntax on
 
 if has("gui_running")
-    "colorscheme molokai
-    " set background=dark
-
     " Remove toolbar
     set guioptions-=T
     set guioptions+=e
@@ -97,7 +94,8 @@ if has("gui_running")
 
     " Font
     " set guifont="DejaVu Sans Mono 10"
-    set guifont=monoOne\ 9
+    set guifont=monoOne\ 10
+    colorschem molokai
 endif
 
 " Default to UTF8 encoding
