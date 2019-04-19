@@ -9,7 +9,7 @@
 # Global Variables
 DIRECTORY=$(realpath $(dirname $0))
 BACKUP_DIR=${DIRECTORY}_old
-DOTFILES="vimrc vim fonts"
+DOTFILES="vimrc vim fonts oh-my-zsh zshrc"
 
 # Initialize and update submodules
 pushd $DIRECTORY
