@@ -26,9 +26,12 @@ Plugin 'ledger/vim-ledger'
 Plugin 'godlygeek/tabular'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'dracula/vim'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin indent on
 
+" Custom fzf installation
+set rtp+=~/.fzf
 
 " Increase history
 set history=700
@@ -67,7 +70,8 @@ set cc=+1
 set noci " Disable C indent
 set ai " Auto indent
 set si " Smart indent
-set wrap " Wrap lines
+"set wrap " Wrap lines
+set nowrap
 
 " Settings for specific file types
 autocmd FileType ruby,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
