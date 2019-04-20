@@ -62,16 +62,18 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git npm tmux colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
+
+[[ -e "$HOME/.theme" && -z "$TMUX" ]] && . "$HOME/.theme"
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -79,6 +81,23 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+export EDITOR=vim
+
+# vi editing mode
+zle -N edit-command-line
+
+bindkey -v
+
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

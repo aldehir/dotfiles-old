@@ -18,15 +18,14 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ledger/vim-ledger'
 Plugin 'godlygeek/tabular'
-Plugin 'posva/vim-vue'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'dracula/vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -124,16 +123,18 @@ if has("gui_running")
   set guifont=Roboto\ Mono\ for\ Powerline\ 12
 endif
 
-if has("termguicolors") && !empty("$TMUX")
+if has("termguicolors")
   set termguicolors
 
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  if !empty("$TMUX")
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  endif
 endif
 
 " Theme
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme dracula
 
 
 " Default to UTF8 encoding

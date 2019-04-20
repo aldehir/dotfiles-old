@@ -9,7 +9,15 @@
 # Global Variables
 DIRECTORY=$(realpath $(dirname $0))
 BACKUP_DIR=${DIRECTORY}_old
-DOTFILES="vimrc vim fonts oh-my-zsh zshrc tmux.conf"
+DOTFILES=(
+  vimrc
+  vim
+  fonts
+  oh-my-zsh
+  zshrc
+  tmux.conf
+  theme
+)
 
 # Initialize and update submodules
 pushd $DIRECTORY
@@ -19,7 +27,7 @@ popd
 
 # Loop through and create a symlink for each dotfile. If a file already exists,
 # back it up to ${BACKUP_DIR}.
-for file in $DOTFILES; do
+for file in "${DOTFILES[@]}"; do
     INSTALL=1
     if [[ -e $HOME/.$file ]]; then
         # Don't backup if symlink already points to proper file
