@@ -13,6 +13,7 @@ DOTFILES=(
   vimrc
   vim
   fonts
+  fzf
   oh-my-zsh
   zshrc
   tmux.conf
