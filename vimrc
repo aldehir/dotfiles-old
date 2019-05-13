@@ -91,7 +91,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,node_modules/
 
 " Search settings
 set ignorecase
@@ -179,3 +179,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Airline Settings
 let g:airline_theme = 'base16_default'
+
+" Use Ctrl-P for FZF
+nnoremap <C-p> :Files<CR>
+inoremap <C-p> <ESC>:Files<CR>

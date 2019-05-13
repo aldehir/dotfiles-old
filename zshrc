@@ -57,6 +57,12 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Set fzf installation directory path
+export FZF_BASE="$HOME/.fzf"
+
+# Set ag as the defautl source for fzf (so .gitignore is enforced)
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
