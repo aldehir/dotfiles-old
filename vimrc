@@ -178,7 +178,7 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Airline Settings
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'dracula'
 
 " Use Ctrl-P for FZF
 nnoremap <C-p> :Files<CR>
