@@ -60,23 +60,25 @@ ZSH_THEME="robbyrussell"
 # Set fzf installation directory path
 export FZF_BASE="$HOME/.fzf"
 
-# Set ag as the defautl source for fzf (so .gitignore is enforced)
+# Set ag as the default source for fzf (so .gitignore is enforced)
 export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git yarn npm tmux colored-man-pages nvm fzf)
+plugins=(vi-mode git yarn npm tmux colored-man-pages nvm fzf)
 
 source $ZSH/oh-my-zsh.sh
 
-[[ -e "$HOME/.theme" && -z "$TMUX" ]] && . "$HOME/.theme"
+[[ -e "$HOME/.theme" && -z "$THEME_SET" ]] && . "$HOME/.theme"
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -88,22 +90,27 @@ export LANG=en_US.UTF-8
 #   export EDITOR='mvim'
 # fi
 
-export EDITOR=vim
+export EDITOR=nvim
+
+# alias vim to nvim
+alias vim=nvim
 
 # vi editing mode
-zle -N edit-command-line
+# zle -N edit-command-line
+# 
+# bindkey -v
+#  
+# autoload -Uz edit-command-line
+# bindkey -M vicmd 'v' edit-command-line
+# 
+# bindkey '^P' up-history
+# bindkey '^N' down-history
+#  
+# bindkey '^?' backward-delete-char
+# bindkey '^h' backward-delete-char
+# bindkey '^w' backward-kill-word
 
-bindkey -v
-
-autoload -Uz edit-command-line
-bindkey -M vicmd 'v' edit-command-line
-
-bindkey '^P' up-history
-bindkey '^N' down-history
-
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
+umask 022
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
